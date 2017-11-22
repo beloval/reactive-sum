@@ -13,17 +13,17 @@ public final class ReactiveSum implements Observer<Double> { //1
             }
         }).subscribe(this); // (6)
     }
-
+    @Override
     public void onCompleted() {
         System.out.println("Exiting last sum was : " + this.sum); //(4)
     }
 
-
+    @Override
     public void onError(Throwable e) {
         System.err.println("Got an error!"); // (3)
         e.printStackTrace();
     }
-
+    @Override
     public void onNext(Double sum) {
         this.sum = sum;
         System.out.println("update : a + b = " + sum); // (2)

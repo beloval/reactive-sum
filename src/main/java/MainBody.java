@@ -58,7 +58,8 @@ public class MainBody {
         return input
                 .map(new Func1<String, Matcher>() {
                     public Matcher call(String str) {
-                        return pattern.matcher(str); //2
+                        Matcher matcher = pattern.matcher(str);
+                        return matcher; //2
                     }
                 })
                 .filter(new Func1<Matcher, Boolean>() {
