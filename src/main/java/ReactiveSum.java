@@ -28,6 +28,23 @@ public final class ReactiveSum implements Observer<Double> { //1
         this.sum = sum;
         System.out.println("update : a + b = " + sum); // (2)
     }
+
+    /*
+    public static void reactiveSum(
+                Observable<Double> a,
+                Observable<Double> b) {
+                Observable
+                          .combineLatest(a, b, (x, y) -> x + y) // (1)
+                          .subscribe( // (2)
+            sum -> System.out.println("update : a + b = " + sum),
+            error -> {
+                        System.out.println("Got an error!");
+                        error.printStackTrace();
+                        },
+                        () -> System.out.println("Exiting...")
+                        );
+}
+     */
 }
 
 

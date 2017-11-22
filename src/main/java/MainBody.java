@@ -58,8 +58,7 @@ public class MainBody {
         return input
                 .map(new Func1<String, Matcher>() {
                     public Matcher call(String str) {
-                        Matcher matcher = pattern.matcher(str);
-                        return matcher; //2
+                        return pattern.matcher(str); //2
                     }
                 })
                 .filter(new Func1<Matcher, Boolean>() {
@@ -72,5 +71,12 @@ public class MainBody {
                         return Double.parseDouble(matcher.group(1));
                     }
                 }); //4
+        /* we change it to lambdas
+        return input
+                    .map(pattern::matcher) // (1)
+                    .filter(m -> m.matches() && m.group(1) != null) // (2)
+                    .map(matcher -> matcher.group(1)) // (3)
+                    .map(Double::parseDouble); // (4)
+         */
     }
 }
